@@ -23,6 +23,12 @@ window.onscroll = () => {
                 links.classList.remove('active');
                 document.querySelector('header nav a[href*=' + id +']').classList.add('active');
             });
+
+            //active sections for animations on scroll
+            sec.classList.add('show-animate')
+        }
+        else{
+            sec.classList.remove('show-animate')
         }
     });
     // sticky header
@@ -33,4 +39,8 @@ window.onscroll = () => {
     //remove toogle icon and navbar when click nabar Links (scroll)
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
+
+    let footer = document.querySelector('footer');
+
+    footer.classList.toggle('show-animate', this.innerHeight + this.screenY >= document.scrollingElement.scrollHeight);
 }
